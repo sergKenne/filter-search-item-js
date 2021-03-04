@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
+import data from './data';
+import Products from './component/Products';
+import ProductsFilterByObject from './component/ProductsFilterByObject'
 
 function App() {
+
+  const [products, setProducts] = useState([]);
+
+  console.log(products);
+  useEffect(()=>{
+
+    setProducts(data)
+
+  },[]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+          {/* <Products products={products} /> */}
+          <hr />
+          <ProductsFilterByObject products={products} />
+      </div>
   );
 }
 
